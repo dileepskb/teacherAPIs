@@ -3,6 +3,7 @@ const { teacherController } = require('../controllers/index')
 
 const router = express.Router();
 
+router.route('/').get(teacherController.teacher_all);
 router.route('/create').post(teacherController.teacher_create);
 
 module.exports = router;
