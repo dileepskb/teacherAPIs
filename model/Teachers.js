@@ -1,15 +1,4 @@
-// const mongoose = require("mongoose");
-
-// const teacherSchema =  new mongoose.Schema({
-//     name:String,
-//     email:String,
-//     password:String
-// });
-// module.exports = mongoose.model("teacher",teacherSchema);
-
-
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const teacherSchema = mongoose.Schema(
   {
@@ -29,7 +18,7 @@ const teacherSchema = mongoose.Schema(
       required: false,
       trim: true,
       default: 0,
-    }
+    },
   },
   {
     timestamps: true,
@@ -39,6 +28,6 @@ const teacherSchema = mongoose.Schema(
 /**
  * @typedef property
  */
-const Teacher = mongoose.model('Teacher', teacherSchema);
+const Teacher = mongoose.model("Teacher", teacherSchema);
 
 module.exports = Teacher;

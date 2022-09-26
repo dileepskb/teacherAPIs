@@ -1,1 +1,1 @@
-module.exports.teacherService = require('./teacher');
+module.exports.teacherService = require('./teacher.service');

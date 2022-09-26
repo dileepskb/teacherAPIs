@@ -1,0 +1,1 @@
+module.exports.Teacher = require('./Teachers');
