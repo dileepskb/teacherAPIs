@@ -1,15 +1,6 @@
 const express = require('express');
 // const authRoute = require('./auth.route');
 const teacherRoutes = require("./teachers");
-
-// const userRoute = require('./user.route');
-// const propertyRoute = require('./property.route');
-// const locationRoute = require('./location.route');
-// const roomRoute = require('./room.route');
-// const fileRoute = require('./file.route');
-// const docsRoute = require('./docs.route');
-// const config = require('../../config/config');
-
 const router = express.Router();
 
 const defaultRoutes = [
@@ -39,8 +30,6 @@ const defaultRoutes = [
 //   },
 ];
 
-
-
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
@@ -48,4 +37,4 @@ defaultRoutes.forEach((route) => {
 /* istanbul ignore next */
 
     
-    module.exports = router;
+module.exports = router;
