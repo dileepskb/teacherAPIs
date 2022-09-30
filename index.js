@@ -3,6 +3,7 @@ var path = require("path");
 var bodyParser = require('body-parser')
 var cookieParser = require("cookie-parser");
 const routes = require("./routes/route");
+const userRoute = require("./routes/user");
 require("dotenv").config();
 var cors = require("cors");
 const port = process.env.PORT || 3000;
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/v1", routes);
+app.use("/api/user", userRoute);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
