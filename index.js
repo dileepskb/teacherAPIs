@@ -33,11 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
-const allowedOrigins = ['http://localhost:2000', 'https://classes-c4sw.vercel.app/', 'https://prvtutors.com/'];
 
-app.use(cors({
-  origin: allowedOrigins,
-}))
+app.use(cors())
 
 app.use("/api/v1", routes);
 app.use("/api/user", userRoute);
