@@ -33,38 +33,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+const allowedOrigins = ['http://localhost:2000', 'https://classes-c4sw.vercel.app/', 'https://prvtutors.com/'];
+
+app.use(cors({
+  origin: allowedOrigins,
+}))
 
 app.use("/api/v1", routes);
 app.use("/api/user", userRoute);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-//To allow cross-origin requests
-app.use(cors());
-
-const myLogger = function (req, res, next) {
-  const trackIp = new IP({
-    ipInfo: req.ip,
-  });
-  trackIp.save();
-  next()
-}
-
-app.use(myLogger);
-
-app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:2000', 'https://classes-c4sw.vercel.app/', 'https://prvtutors.com/'];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-       res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-  res.header('Access-Control-Allow-Methods', 'GET, POST,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', true);
 
 
-  return next();
-});
+
 
 // module.exports = app;
 app.listen(port, () => {
