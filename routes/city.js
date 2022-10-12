@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.route("/importCities").get(cityController.cityCreate);
 router.route("/getAllCities").get(cityController.getAllCities);
-router.route("/findCity").get(cityController.findCity);
+router.route("/findCity").post(cityController.findCity);
 
 module.exports = router;
