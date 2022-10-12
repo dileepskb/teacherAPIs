@@ -86,7 +86,7 @@ router.post("/login", (req, res, next) => {
 });
 
 router.post("/search", (req, res, next) => {
-  User.find({'username': {'$regex': `sho` }},{_id: 1, username: 1})
+  User.find({'username': {'$regex': req.body.username }},{_id: 1, username: 1})
     .exec()
     .then((user) => {
       res.status(200).json({
