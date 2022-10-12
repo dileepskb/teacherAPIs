@@ -101,4 +101,31 @@ router.get("/search", (req, res, next) => {
     });
 });
 
+
+router.get("/searchUserWithCity", (req, res, next) => {
+  User.aggregate([
+    {   $match: {
+      city: req.body.userCity
+    }
+    }
+]).then((user) => {
+  if(user.length > 0) {
+    res.status(200).json({
+      users: user,
+    });
+  } else {
+    res.status(203).json({
+      noUserMessage:'No User Found',
+    });
+  }
+
+    })
+    .catch((err) => {
+      console.log(err);
+      req.status(500).json({
+        error: err,
+      });
+    });
+});
+
 module.exports = router;

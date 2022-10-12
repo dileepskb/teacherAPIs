@@ -1,6 +1,7 @@
 const express = require('express');
 // const authRoute = require('./auth.route');
 const teacherRoutes = require("./teachers");
+const cityRoutes = require("./city");
 const router = express.Router();
 
 const defaultRoutes = [
@@ -8,26 +9,10 @@ const defaultRoutes = [
     path: '/teachers',
     route: teacherRoutes,
   },
-//   {
-//     path: '/users',
-//     route: userRoute,
-//   },
-//   {
-//     path: '/file',
-//     route: fileRoute,
-//   },
-//   {
-//     path: '/property',
-//     route: propertyRoute,
-//   },
-//   {
-//     path: '/property-location',
-//     route: locationRoute,
-//   },
-//   {
-//     path: '/property-room',
-//     route: roomRoute,
-//   },
+  {
+    path: '/city',
+    route: cityRoutes,
+  },
 ];
 
 defaultRoutes.forEach((route) => {

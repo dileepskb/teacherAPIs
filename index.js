@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 var cookieParser = require("cookie-parser");
 const routes = require("./routes/route");
 const userRoute = require("./routes/user");
+const cityRoute = require('./routes/city');
 const IP = require("./model/IPAddress");
 require("dotenv").config();
 var cors = require("cors");
